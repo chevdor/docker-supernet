@@ -8,11 +8,11 @@ This image is based on phusion/baseimage. It installs java and the latest Supern
 
 By default, the container will run on testnet using the following command:
 
-   docker run -it -p 6876:6876 chevdor/supernet:1.5.12.1
+   docker run -it -p 6876:6876 chevdor/docker-supernet:1.5.12.1
    
 However, you may request the container to run on the mainnet by specifying the ENV variable as shown below:
 
-   docker run -it -p 7876:7876 -e "NXTNET=main" chevdor/supernet:1.5.12.1
+   docker run -it -p 7876:7876 -e "NXTNET=main" chevdor/docker-supernet:1.5.12.1
 
 
 NOTE: Any other value than “main” for the NXTNET variable will make your container run on mainnet.
