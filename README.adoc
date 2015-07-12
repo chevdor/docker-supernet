@@ -1,7 +1,7 @@
 # docker-nxt
 Docker container to run Supernet on testnet or mainnet
 
-See https://registry.hub.docker.com/u/chevdor/supernet/
+See https://registry.hub.docker.com/u/chevdor/docker-supernet/
 
 ## Intro
 This image is based on phusion/baseimage. It installs java and the latest Supernet software.
