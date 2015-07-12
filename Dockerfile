@@ -15,8 +15,10 @@ RUN \
   cd / && \
   wget https://bitbucket.org/longzai1988/supernet/downloads/supernet-1.5.12.1.zip && \ 
   unzip supernet*.zip && \
+  mv supernet-1.5.12.1 supernet && \
   rm *.zip && \
   cd /supernet && \
+  chmod a+x run.sh && \
   rm -Rf *.exe src changelogs
 
 # Define commonly used JAVA_HOME variable
