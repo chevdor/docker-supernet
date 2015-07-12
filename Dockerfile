@@ -1,38 +1,25 @@
-FROM phusion/baseimage:0.9.16
+FROM nginx:latest
 MAINTAINER Chevdor <chevdor@gmail.com>
 LABEL version="0.1.2"
-LABEL NRSVersion="1.5.12.1"
+LABEL NRSVersion="2.0.5-beta"
+
+ADD https://bitbucket.org/longzai1988/supernetv1-lite/downloads/supernet-lite-2.0.5-beta.zip /
 
 RUN \
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  add-apt-repository -y ppa:webupd8team/java && \
   apt-get update && \
-  apt-get install -y oracle-java8-installer wget unzip joe && \
+  apt-get install -y unzip \
+    joe \
+    # wget \
+    && \
   rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk8-installer && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   cd / && \
-  wget https://bitbucket.org/longzai1988/supernet/downloads/supernet-1.5.12.1.zip && \ 
   unzip supernet*.zip && \
-  mv supernet-1.5.12.1 supernet && \
+  mv supernet-lite-2.0.5-beta supernet && \
   rm *.zip && \
-  cd /supernet && \
-  chmod a+x run.sh && \
-  rm -Rf *.exe src changelogs
-
-# Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+  cd /supernet
 
 # RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
+ADD nginx.conf /etc/nginx/nginx.conf
 
-VOLUME /supernet
-
-ENV NXTNET test       
-# when running the container, you can override that using -e "NXTNET=main"
-
-COPY ./nxt-main.properties /supernet/conf/
-COPY ./nxt-test.properties /supernet/conf/
-COPY ./start-supernet.sh /supernet/
-
-CMD ["/supernet/start-supernet.sh", "/bin/bash"] 
