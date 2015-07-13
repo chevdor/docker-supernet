@@ -1,4 +1,4 @@
-# docker-nxt
+# docker-supernet
 Docker container to run Supernet v1 and v2
 
 See https://registry.hub.docker.com/u/chevdor/docker-supernet/
