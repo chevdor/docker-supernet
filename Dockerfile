@@ -4,7 +4,7 @@ LABEL version="0.1.2"
 
 LABEL NRSVersion="3.0.7"
 
-ADD https://codeload.github.com/Tosch110/SuperNET-Lite-3/zip/3.0.7/SuperNET-Lite-3-3.0.7.zip /
+ADD https://github.com/Tosch110/SuperNET-Lite-3/archive/3.0.7.zip /
 
 
 RUN \
