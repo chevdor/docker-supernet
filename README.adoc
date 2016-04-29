@@ -4,6 +4,18 @@ Docker container to run Supernet v1 and v2
 See https://registry.hub.docker.com/u/chevdor/docker-supernet/
 
 ## Intro
+### Supernet v3
+The images has been once again significantly slimmed down.
+
+Here is an example that will bring Supernet at http://localhost:7117
+
+   docker run -p 7117:7110 -d --name supernetv3 chevdor/docker-supernet:3.0.7
+
+### Supernet v2
+The v2 image is based on nginx (and thus is much smaller than v1!)
+
+   docker run -p 80:80 -d --name supernetv2 chevdor/docker-supernet:2.0.5-beta
+   
 ### Supernet v1
 This image is based on phusion/baseimage for Supernet v1. It installs java and the latest Supernet software.
 
@@ -16,9 +28,3 @@ However, you may request the container to run on the mainnet by specifying the E
 NOTE: Any other value than “main” for the NXTNET variable will make your container run on mainnet.
 
 WARNING: When you start the container for v1, it will immediately connect and start downloading the blockchain. The testnet blockchain is much smaller than the mainnet blockchain (which is why the container default to testnet unless you specifically say you want to run on the mainnet). In any case, downloading the blockchain may take up to several hours. Be patient!
-
-### Supernet v2
-The v2 image is based on nginx (and thus is much smaller than v1!)
-
-   docker run -p 80:80 -d --name supernetv2 chevdor/docker-supernet:2.0.5-beta
-   
